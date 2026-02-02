@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="_Checkbox / Square / Base">
+<rect id="Rectangle" x="3" y="3" width="18" height="18" rx="4" fill="var(--fill-0, #F5B230)"/>
+<path id="Vector" d="M11.0205 15.6069C10.8709 15.7552 10.6296 15.7546 10.4807 15.6057L7.59907 12.7241C7.27107 12.3961 7.27885 11.8619 7.61625 11.5436C7.93799 11.2401 8.4421 11.2452 8.75762 11.5552L10.6492 13.4135C10.7051 13.4684 10.7947 13.4682 10.8503 13.413L15.7151 8.58756C16.043 8.26238 16.5718 8.26262 16.8993 8.5881C17.2303 8.91702 17.23 9.45262 16.8985 9.78111L11.0205 15.6069Z" fill="var(--fill-0, white)"/>
+</g>
+</svg>
