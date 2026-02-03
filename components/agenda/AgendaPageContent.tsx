@@ -1,12 +1,15 @@
 /**
  * Conteúdo da tela Agenda.
  * Filtros (período, profissional), busca, botão Novo agendamento, tabela de agendamentos.
+ * Modais: Novo agendamento, Visualizar agendamento.
  */
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { AgendaTable } from "./AgendaTable";
+import { NovoAgendamentoModal } from "./NovoAgendamentoModal";
+import { AgendaVisualizarModal } from "./AgendaVisualizarModal";
 import { IconCalendar, IconPlus, IconSearch } from "@/components/ui/Icons";
 import type { AgendaRow } from "./AgendaTable";
 
@@ -15,8 +18,26 @@ export interface AgendaPageContentProps {
 }
 
 export function AgendaPageContent({ data }: AgendaPageContentProps) {
+  const [openNovo, setOpenNovo] = useState(false);
+  const [visualizarAgendamento, setVisualizarAgendamento] = useState<AgendaRow | null>(null);
+
   return (
     <>
+      <NovoAgendamentoModal
+        isOpen={openNovo}
+        onClose={() => setOpenNovo(false)}
+        onAgendar={() => setOpenNovo(false)}
+      />
+      <AgendaVisualizarModal
+        isOpen={visualizarAgendamento !== null}
+        onClose={() => setVisualizarAgendamento(null)}
+        agendamento={visualizarAgendamento}
+        onCancelarAgendamento={(id) => {
+          // Aqui poderia atualizar a lista removendo ou alterando status do id
+          setVisualizarAgendamento(null);
+        }}
+      />
+
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative max-w-[200px] sm:max-w-[240px]">
@@ -58,6 +79,7 @@ export function AgendaPageContent({ data }: AgendaPageContentProps) {
         </div>
         <button
           type="button"
+          onClick={() => setOpenNovo(true)}
           className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-[var(--color-primary)] px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-[var(--color-primary-dark)]"
         >
           <IconPlus className="h-5 w-5" />
@@ -65,7 +87,7 @@ export function AgendaPageContent({ data }: AgendaPageContentProps) {
         </button>
       </div>
 
-      <AgendaTable data={data} />
+      <AgendaTable data={data} onVisualizar={setVisualizarAgendamento} />
     </>
   );
 }

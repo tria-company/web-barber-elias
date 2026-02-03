@@ -20,6 +20,7 @@ export interface AgendaRow {
 
 export interface AgendaTableProps {
   data: AgendaRow[];
+  onVisualizar?: (row: AgendaRow) => void;
 }
 
 const sortIcon = (
@@ -42,7 +43,7 @@ const statusClass: Record<AgendaRow["status"], string> = {
   cancelado: "bg-red-100 text-red-800",
 };
 
-export function AgendaTable({ data }: AgendaTableProps) {
+export function AgendaTable({ data, onVisualizar }: AgendaTableProps) {
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-200">
       <table className="min-w-full divide-y divide-gray-200">
@@ -105,6 +106,7 @@ export function AgendaTable({ data }: AgendaTableProps) {
               <td className="whitespace-nowrap px-6 py-4 text-right text-sm">
                 <button
                   type="button"
+                  onClick={() => onVisualizar?.(row)}
                   className="font-medium text-[var(--color-primary)] hover:underline"
                 >
                   Visualizar
