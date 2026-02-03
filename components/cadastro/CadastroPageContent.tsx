@@ -41,7 +41,7 @@ export function CadastroPageContent({ data }: CadastroPageContentProps) {
           className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-amber-100 px-4 py-2.5 text-sm font-semibold text-gray-800 shadow-sm hover:bg-amber-200"
         >
           <IconUsers className="h-5 w-5" />
-          Cadastrar clientes
+          Cadastrar Colaborador
         </button>
       </div>
 

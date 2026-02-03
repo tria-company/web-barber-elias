@@ -16,7 +16,7 @@ import { IconChevronDown } from "@/components/ui/Icons";
 
 const navItems = [
   { label: "Home", href: "/dashboard" },
-  { label: "Agenda", href: "#" },
+  { label: "Agenda", href: "/dashboard/agenda" },
   {
     label: "Cadastro",
     href: "/dashboard/cadastro",
